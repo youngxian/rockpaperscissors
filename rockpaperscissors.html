@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Rock, Paper, Scissors!</title>
+</head>
+
+<body>
+    <h1>
+        The 'Rock' 'Paper' 'Scissors' game
+    </h1>
+    <button onclick="game()">Let Begin</button>
+    <br>
+    <p class="response"></p>
+    <script>
+        function myFunction() {
+            const playerSelection = prompt("Select either rock paper or scissors", "rock");
+            const computerSelection = computerPlay();
+            console.log(playRound(playerSelection, computerSelection))
+        }
+
+        function computerPlay() {
+            let choice = Math.floor(Math.random() * 3);
+            switch (choice) {
+                case 0:
+                    {
+                        return "Rock";
+                    }
+                case 1:
+                    {
+                        return "Paper";
+                    }
+                case 2:
+                    {
+                        return "Scissors"
+                    }
+                default:
+                    {
+                        return "Didn't work";
+                    }
+            }
+        }
+
+        function playRound(playerSelection, computerSelection) {
+            let player = playerSelection.toLowerCase();
+            let computer = computerSelection.toLowerCase();
+
+            if (player === computer) {
+                let feedback = "You tied!";
+                // document.getElementsByClassName("response") = feedback;
+                console.log(feedback);
+                return "tie";
+            }
+            if (computer === "rock") {
+                if (player === "scissors") {
+                    let feedback = "You lose, rock beats scissors!";
+                    // document.getElementsByClassName("response") = feedback;
+                    console.log(feedback);
+                    return "lose";
+                } else {
+                    let feedback = "You win, paper beats rock!";
+                    // document.getElementsByClassName("response") = feedback;
+                    console.log(feedback);
+                    return "win";
+                }
+            }
+            if (computer === "paper") {
+                if (player === "rock") {
+                    let feedback = "You lose, paper beats rock!";
+                    // document.getElementsByClassName("response") = feedback;
+                    console.log(feedback);
+                    return "lose";
+                } else {
+                    let feedback = "You win, scissors beats paper!";
+                    // document.getElementsByClassName("response") = feedback;
+                    console.log(feedback);
+                    return "win";
+                }
+            }
+            if (computer === "scissors") {
+                if (player === "paper") {
+                    let feedback = "You lose, scissors beats paper!";
+                    // document.getElementsByClassName("response") = feedback;
+                    console.log(feedback);
+                    return "lose";
+                } else {
+                    let feedback = "You win, rock beats scissors!";
+                    console.log(feedback);
+                    // document.getElementsByClassName("response") = feedback;
+                    return "win";
+                }
+            }
+        }
+
+        function game() {
+            let computerScore = 0;
+            let playerScore = 0;
+            while (computerScore < 5 && playerScore < 5) {
+                computerSelection = computerPlay();
+                // (cheating!) console.log("computer chose " + computerSelection);
+                playerSelection = window.prompt("Choose Rock, Paper, Scissors!");
+                let result = playRound(playerSelection, computerSelection);
+                if (result === "win") playerScore++;
+                if (result === "lose") computerScore++;
+            }
+            if (playerScore > computerScore) {
+                return "You win 5 to " + computerScore + "!";
+            } else {
+                return "You lose " + playerScore + " to 5 :(";
+            }
+        }
+    </script>
+</body>
+
+</html>
