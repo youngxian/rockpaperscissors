@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Rock | Paper | Scissors</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+
+</head>
+
+<body>
+    <style>
+        buttton {
+            border-radius: 0;
+        }
+        
+        #playerscore:hover,
+        #computerscore:hover {
+            transform: scale(1.3);
+        }
+    </style>
+    <h1 class="text-center bg-dark text text-white p-3">
+        Welcome to 'Rock' 'Paper' 'Scissors' game
+    </h1>
+    <h1 class="text-center display-1 bigtext"></h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="compside d-none">
+                    <h1 class="text-center">
+                        Computer
+                    </h1>
+                    <br>
+                    <h1 class="display-1 text-center" id="computerscore">
+                        0
+                    </h1>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class=" flex-row justify-content-center d-none thechose">
+                    <button class="btn bg-large text-white bg-secondary selection" id="rockbtn" type="button">Rock</button>
+                    <button class="btn bg-large text-white bg-secondary selection ml-2" id="paperbtn" type="button">Paper</button>
+                    <button class="btn bg-large text-white bg-secondary selection ml-2" id="scissorsbtn" type="button">Scissors</button>
+                </div>
+                <p class="text-center text-success p-5" id='feedback'></p>
+                <div class="text-center pt-4 startscreen form-group">
+                    <label for="labtime" class="">Select your number of lab's</label>
+                    <select id="labtime" class="form-control">
+                        <option value="4">4 laps</option>
+                        <option value="5">5 laps</option>
+                        <option value="6">6 laps</option>
+                        <option value="8">8 laps</option>
+                        <option value="10">10 laps</option>
+                    </select>
+                    <br>
+                    <button type="button" class="btn btn-success text-white selectbtn">Submit</button>
+                </div>
+                <div class="gameover d-none">
+                    <h1 class="text-primary text-center">Gameover</h1>
+                    <p class="text-center">Reload page to try again</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="playerside d-none">
+                    <h1 class="text-center">You</h1>
+                    <br>
+                    <h1 class="display-1 text-center" id="playerscore">
+                        0
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const gameover = document.querySelector('.gameover');
+        const compside = document.querySelector('.compside');
+        const playerside = document.querySelector('.playerside');
+        const startscreen = document.querySelector('.startscreen');
+        const bigtext = document.querySelector('.bigtext');
+        const thechose = document.querySelector('.thechose');
+        const getthebtn = document.querySelectorAll('.selection');
+        const feedback = document.getElementById('feedback');
+        const selectbtn = document.querySelector('.selectbtn');
+        const labtime = document.getElementById('labtime');
+        let computerscore = document.querySelector('#computerscore');
+        let playerscore = document.querySelector('#playerscore');
+        let startvaue;
+        let roundvalue = 0;
+
+        selectbtn.addEventListener(('click'), ($event) => {
+            startvaue = parseInt(labtime.value);
+            console.log('wkmwk ' + startvaue);
+            startscreen.classList.add('d-none');
+            thechose.classList.remove('d-none');
+            compside.classList.remove('d-none');
+            playerside.classList.remove('d-none');
+            thechose.classList.add('d-flex');
+            bigtext.textContent = 'Round ' + roundvalue;
+
+        });
+
+        getthebtn.forEach((button) => {
+            button.addEventListener(('click'), (e) => {
+                if (button.textContent == 'Rock') {
+                    compare(button.textContent)
+                    roundvalue = roundvalue + 1;
+                    bigtext.textContent = 'Round ' + roundvalue;
+                    if (roundvalue == startvaue) {
+                        whowin();
+                        gameover.classList.remove('d-none');
+                        thechose.classList.add('d-none');
+                        thechose.classList.remove('d-flex');
+                        feedback.classList.add('d-none');
+                    }
+
+                } else if (button.textContent == 'Paper') {
+                    compare(button.textContent)
+                    roundvalue = roundvalue + 1;
+                    bigtext.textContent = 'Round ' + roundvalue;
+                    if (roundvalue == startvaue) {
+                        whowin();
+                        gameover.classList.remove('d-none');
+                        thechose.classList.add('d-none');
+                        thechose.classList.remove('d-flex');
+                        feedback.classList.add('d-none');
+                    }
+
+                } else if (button.textContent == 'Scissors') {
+                    compare(button.textContent)
+                    roundvalue = roundvalue + 1;
+                    bigtext.textContent = 'Round ' + roundvalue;
+                    if (roundvalue == startvaue) {
+                        whowin();
+                        gameover.classList.remove('d-none');
+                        thechose.classList.add('d-none');
+                        thechose.classList.remove('d-flex');
+                        feedback.classList.add('d-none');
+                    }
+
+                }
+            })
+        })
+
+        function whowin() {
+            if (parseInt(computerscore.textContent) > parseInt(playerscore.textContent)) {
+                bigtext.textContent = 'You lose';
+                bigtext.classList.add('bg-danger');
+                bigtext.classList.remove('bg-success');
+                bigtext.classList.add('text-white');
+                bigtext.classList.remove('bg-primary');
+            } else if (parseInt(computerscore.textContent) < parseInt(playerscore.textContent)) {
+                bigtext.textContent = 'Winner!!!!!!';
+                bigtext.classList.add('bg-success');
+                bigtext.classList.remove('bg-danger');
+                bigtext.classList.add('text-white');
+                bigtext.classList.remove('bg-primary');
+            } else if (parseInt(computerscore.textContent) == parseInt(playerscore.textContent)) {
+                bigtext.textContent = 'It was a Tie!!!!';
+                bigtext.classList.remove('bg-success');
+                bigtext.classList.remove('bg-danger');
+                bigtext.classList.add('text-white');
+                bigtext.classList.add('bg-primary');
+            }
+        }
+
+        function compare(select) {
+            let compplay = getcompselection();
+            if (compplay == 'Rock') {
+                if (select == 'Scissors') {
+                    feedback.textContent = "You lose, rock beats scissors!";
+                    let score = parseInt(computerscore.textContent) + 1;
+                    computerscore.textContent = score.toString();
+                    return 'Lose'
+                } else if (select == 'Paper') {
+                    feedback.textContent = "You win, paper beats rock!";
+                    let score = parseInt(playerscore.textContent) + 1;
+                    playerscore.textContent = score.toString();
+                    return 'Win'
+                } else if (select == 'Rock') {
+                    feedback.textContent = "You tie!";
+                    return 'Tie'
+                }
+            } else if (compplay == 'Scissors') {
+                if (select == 'Scissors') {
+                    feedback.textContent = "You tie!";
+                    return 'Tie'
+                } else if (select == 'Paper') {
+                    feedback.textContent = "You Lose, Scissors beats paper!";
+                    let score = parseInt(computerscore.textContent) + 1;
+                    computerscore.textContent = score.toString();
+                    return 'Lose'
+                } else if (select == 'Rock') {
+                    feedback.textContent = "You Win, Rock beats scissors!";
+                    let score = parseInt(playerscore.textContent) + 1;
+                    playerscore.textContent = score.toString();
+                    return 'Win'
+                }
+            } else if (compplay == 'Paper') {
+                if (select == 'Scissors') {
+                    feedback.textContent = "You win, scissors beats paper!";
+                    let score = parseInt(playerscore.textContent) + 1;
+                    playerscore.textContent = score.toString();
+                    return 'Win'
+                } else if (select == 'Paper') {
+                    feedback.textContent = "You tie!";
+                    return 'Tie'
+                } else if (select == 'Rock') {
+                    feedback.textContent = "You lose! paper beats rock";
+                    let score = parseInt(computerscore.textContent) + 1;
+                    computerscore.textContent = score.toString();
+                    return 'Lose'
+                }
+            }
+        }
+
+        function getcompselection() {
+            let choice = Math.floor(Math.random() * 3);
+            switch (choice) {
+                case 0:
+                    {
+                        return "Rock";
+                    }
+                case 1:
+                    {
+                        return "Paper";
+                    }
+                case 2:
+                    {
+                        return "Scissors"
+                    }
+                default:
+                    {
+                        return "Didn't work";
+                    }
+            }
+        }
+    </script>
+</body>
+
+</html>
