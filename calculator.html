@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="calculator-style.css">
+    <title>Javascript - calculator</title>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-sm-0">
+
+            </div>
+            <div class="col-lg-4 col-sm-12">
+                <div class="cal-body d-flex flex-column justify-content-center pb-4">
+                    <input type="text" name="number" id="displayscreen" class="input-text" step="0.01" onkeydown="return false">
+                    <input type="text" name="answer" id="answerscreen" class="display-4 input-text" onkeydown="return false">
+                    <div class="d-flex flex-row flex-wrap justify-content-center mt-4">
+                        <button class="btn">e</button>
+                        <button class="btn">sin</button>
+                        <button class="topbtn dark-mode pink">dark mode</button>
+                    </div>
+                    <div class="d-flex flex-row flex-wrap justify-content-center">
+                        <button class="btn orange">C</button>
+                        <button class="btn">(</button>
+                        <button class="btn">)</button>
+                        <button class="btn pink">/</button>
+                    </div>
+                    <div class="d-flex flex-row flex-wrap justify-content-center">
+                        <button class="btn">7</button>
+                        <button class="btn">8</button>
+                        <button class="btn">9</button>
+                        <button class="btn pink">*</button>
+                    </div>
+                    <div class="d-flex flex-row flex-wrap justify-content-center">
+                        <button class="btn">4</button>
+                        <button class="btn">5</button>
+                        <button class="btn">6</button>
+                        <button class="btn pink">-</button>
+                    </div>
+                    <div class="d-flex flex-row flex-wrap justify-content-center">
+                        <button class="btn">1</button>
+                        <button class="btn">2</button>
+                        <button class="btn">3</button>
+                        <button class="btn pink">+</button>
+                    </div>
+                    <div class="d-flex flex-row flex-wrap justify-content-center">
+                        <button class="btn">0</button>
+                        <button class="btn">.</button>
+                        <button class="btn">%</button>
+                        <button class="btn green">=</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-0">
+                <div class="d-flex flex-column align-items-center">
+                    <h1>features</h1>
+                    <ul>
+                        <li>Dark mode</li>
+                        <li>Accurate</li>
+                        <li>Javascript made</li>
+                        <li>Keyboard disabled</li>
+                        <li>Responsive and beautiful</li>
+                    </ul>
+                    <p>
+                        Simple calculator made with javascript
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="cal-script.js"></script>
+</body>
+
+</html>
