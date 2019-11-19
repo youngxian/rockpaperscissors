@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Books | library</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="minilibrary.css">
+</head>
+
+<body>
+    <!-- Trigger the modal with a button -->
+    <div class="background-img">
+        <div class="heading">
+            <h1>Basic library</h1>
+            <p>The Odin Project</p>
+        </div>
+
+    </div>
+
+    <div class="container">
+        <div class="d-flex flex-row justify-content-between align-items-center mt-4 mb-4">
+            <h2>
+                All Books
+            </h2>
+
+            <div>
+                <button id="deletebtn" class="btn bg-danger" disabled><img src="icons8-trash-24.png" alt="" width="15"></button>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">+ New
+                    book</button>
+            </div>
+        </div>
+        <table class="table" id="myTable">
+            <thead>
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col">#</th>
+                    <th scope="col">Book Title</th>
+                    <th scope="col">Book Author</th>
+                    <th scope="col">Number of Pages</th>
+                    <th scope="col">Current Status</th>
+
+                </tr>
+            </thead>
+
+        </table>
+
+    </div>
+
+
+    <!-- Modal -->
+    <div id="myModal" class="modal fade" role="dialog" tabindex="-1" aria-labelledby="myModallabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-body">
+                    <h1>New Book</h1>
+                    <form id="theform">
+                        <div class="form-group">
+                            <label for="bktitle">
+                                Title
+                            </label>
+                            <input type="text" name="title" id="bktitle" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="bkauthor">
+                                Author
+                            </label>
+                            <input type="text" name="author" id="bkauthor" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="bkpages">
+                                Pages
+                            </label>
+                            <input type="number" name="pages" id="bkpages" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="status">Read status</label>
+                            <select name="" id="status">
+                                <option value="Read">Read</option>
+                                <option value="Not Read">Not Read</option>
+                            </select>
+                        </div>
+                        <button id="submitbtn" type="button" class="btn text-white bg-primary mt-4">Add book to library</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+    <script src="minilibrary.js"></script>
+</body>
+
+</html>
