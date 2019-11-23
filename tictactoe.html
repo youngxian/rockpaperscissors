@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tictactoe | Game </title>
+    <link rel="stylesheet" href="tictactoe.css">
+    <link rel="stylesheet" href="bootstrap.min.css">
+</head>
+
+<body>
+    <main>
+        <div class="container">
+            <h1 class="text-center pt-4">
+                TIC TAC TOE
+            </h1>
+            <div class="row">
+                <div class=" offset-2 col-lg-8">
+                    <div class="d-flex flex-column justify-content-center align-items-center">
+                        <button class="start-btn m-4" onClick="startgame()">Start</button>
+                        <table class="m-4">
+                            <tr>
+                                <td class="cell" id="0"></td>
+                                <td class="cell" id="1"></td>
+                                <td class="cell" id="2"></td>
+                            </tr>
+                            <tr>
+                                <td class="cell" id="3"></td>
+                                <td class="cell" id="4"></td>
+                                <td class="cell" id="5"></td>
+                            </tr>
+                            <tr>
+                                <td class="cell" id="6"></td>
+                                <td class="cell" id="7"></td>
+                                <td class="cell" id="8"></td>
+                            </tr>
+                        </table>
+                        <h1 class="text-center" id="declare"></h1>
+                        <p class="text-center">Computer is an AI powered with Minimax algorithm<br> Which means you can't win :) <br> Good Luck</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <script src="tictactoe.js"></script>
+</body>
+
+</html>
